@@ -1,5 +1,5 @@
 {
   "host": "https://browserquest-server.onrender.com/",
-  "port": 443,
+  "port": 10000,
   "secure": true
 }

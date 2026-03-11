@@ -1,5 +1,5 @@
 {
-    "host": "Set local dev websocket host here",
+    "host": "https://browserquest-server.onrender.com/",
     "port": 8000,
     "dispatcher": false
 }

@@ -4,7 +4,7 @@ var fs = require('fs'),
 
 
 function main(config) {
-    var ws = require("./ws"),
+    var ws = require("./ws");
         WorldServer = require("./worldserver"),
         Log = require('log'),
         _ = require('underscore'),

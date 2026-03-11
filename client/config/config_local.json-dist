@@ -1,5 +1,0 @@
-{
-    "host": "https://browserquest-server.onrender.com/",
-    "port": 8000,
-    "dispatcher": false
-}

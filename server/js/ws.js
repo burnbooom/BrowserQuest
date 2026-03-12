@@ -69,10 +69,32 @@ WS.SocketConnection = Connection.extend({
         this._connection.on('message', function(data) {
             if(self.listen_callback) {
                 try {
-                    self.listen_callback(JSON.parse(data));
-                } catch(e) { console.log("JSON Error"); }
+                    // Hanterar både Buffer och String
+                    var message = JSON.parse(data.toString());
+                    self.listen_callback(message);
+                } catch(e) { console.log("JSON Error: " + e); }
             }
         });
+        
+        this._connection.on('close', function() {
+            if(self.close_callback) self.close_callback();
+            self._server.removeConnection(self.id);
+        });
+    },
+
+    // Denna funktion saknas och orsakar kraschen!
+    sendUTF8: function(data) {
+        if (this._connection.readyState === WebSocket.OPEN) {
+            this._connection.send(data);
+        }
+    },
+
+    // BrowserQuest använder även denna för att skicka JSON-objekt
+    send: function(message) {
+        this.sendUTF8(JSON.stringify(message));
+    }
+});
+
         
         this._connection.on('close', function() {
             if(self.close_callback) self.close_callback();

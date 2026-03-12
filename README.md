@@ -1,25 +1,23 @@
-BrowserQuest
-============
+BrowserQuest client documentation
+=================================
 
-BrowserQuest is a HTML5/JavaScript multiplayer game experiment.
+The client directory should never be directly deployed to staging/production. Deployment steps:
 
+1) Configure the websocket host/port:
 
-Documentation
--------------
+In the client/config/ directory, copy config_build.json-dist to a new config_build.json file.
+Edit the contents of this file to change host/port settings.
 
-Documentation is located in client and server directories.
+2) Run the following commands from the project root:
 
+(Note: nodejs is required to run the build script)
 
-License
--------
+* cd bin
+* chmod +x build.sh
+* ./build.sh
 
-Code is licensed under MPL 2.0. Content is licensed under CC-BY-SA 3.0.
-See the LICENSE file for details.
+This will use the RequireJS optimizer tool to create a client-build/ directory containing a production-ready version of BrowserQuest. 
 
+A build log file will also be created at bin/build.txt.
 
-Credits
--------
-Created by [Little Workshop](http://www.littleworkshop.fr):
-
-* Franck Lecollinet - [@whatthefranck](http://twitter.com/whatthefranck)
-* Guillaume Lecollinet - [@glecollinet](http://twitter.com/glecollinet)
+The client-build directory can be renamed and deployed anywhere. It has no dependencies to any other file/folder in the repository.

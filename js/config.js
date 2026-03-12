@@ -1,14 +1,13 @@
 define([], function() {
-    var renderConfig = {
+    var c = {
         host: "browserquest-server.onrender.com",
         port: 443,
         secure: true,
         dispatcher: false
     };
-    
     return {
-        dev: renderConfig,
-        build: renderConfig,
-        local: renderConfig
+        dev: c,
+        build: c,
+        local: c
     };
 });
